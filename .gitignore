@@ -1,0 +1,4 @@
+# Ignore generated test runners and programs
+# when running tests locally
+test/*.exe
+test/testRunners/*
