@@ -2,3 +2,5 @@
 # when running tests locally
 test/*.exe
 test/testRunners/*
+.vscode/*
+Dockerfile

@@ -1,0 +1,19 @@
+name: Pipelines
+
+on:
+  push
+
+jobs:
+  Test_C_Code:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+     
+    - name: Build Docker image
+      run: docker build -t ghcr.io/drinkdark/sdi-tdd-lab:latest .
+
+    - name: Run tests
+      run: docker run -v ${{ github.workspace }}:/app ghcr.io/drinkdark/sdi-tdd-lab:latest
+    
+    - name: Delete Docker image
+      run: docker rmi ghcr.io/drinkdark/sdi-tdd-lab:latest -f

@@ -9,6 +9,7 @@ CFLAGS = -std=gnu99
 CFLAGS += -Wall
 CFLAGS += -D UNITY_INCLUDE_DOUBLE
 
+
 # Executable that will be created
 TARGET_BASE_1 = version
 TARGET_1 = $(TARGET_BASE_1)$(TARGET_EXTENSION)
@@ -30,7 +31,7 @@ all: test
 
 test:
 	@echo '=== Run cppcheck ==='
-	cppcheck --enable=all --force --language=c ../src
+	cppcheck --enable=all --force --language=c --inline-suppr ../src
 
 	@echo '=== Create runner file with Ruby ==='
 	$(DIR_GUARD) $(RUNNERS_DIR)
